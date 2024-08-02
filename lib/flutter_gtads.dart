@@ -45,22 +45,6 @@ class FlutterGTAds {
     //初始化广告
     List<Map<String, bool>> initAd = await GTAds.init(isDebug: kDebugMode);
     debugPrint("广告初始化结果$initAd");
-    FlutterUnionad.requestPermissionIfNecessary(
-      callBack: FlutterUnionadPermissionCallBack(
-        notDetermined: () {
-          print("权限未确定");
-        },
-        restricted: () {
-          print("权限限制");
-        },
-        denied: () {
-          print("权限拒绝");
-        },
-        authorized: () {
-          print("权限同意");
-        },
-      ),
-    );
   }
 
   //横幅广告位
