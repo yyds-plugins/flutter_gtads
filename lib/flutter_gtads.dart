@@ -1,5 +1,7 @@
 library flutter_gtads;
 
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:gtads/gtads.dart';
@@ -26,24 +28,6 @@ class FlutterGTAds {
     _configs = configs;
     if (!_configs.isNotEmpty) return;
 
-    await FlutterGTAds.initSDK(configs);
-    FlutterUnionad.requestPermissionIfNecessary(
-      callBack: FlutterUnionadPermissionCallBack(
-        notDetermined: () {
-          print("权限未确定");
-        },
-        restricted: () {
-          print("权限限制");
-        },
-        denied: () {
-          print("权限拒绝");
-        },
-        authorized: () {
-          print("权限同意");
-        },
-      ),
-    );
-
     List<GTAdsProvider> providers = [];
     for (var e in configs) {
       if (e.alias == Alias.csj || e.alias == Alias.gromore) {
@@ -61,6 +45,22 @@ class FlutterGTAds {
     //初始化广告
     List<Map<String, bool>> initAd = await GTAds.init(isDebug: kDebugMode);
     debugPrint("广告初始化结果$initAd");
+    FlutterUnionad.requestPermissionIfNecessary(
+      callBack: FlutterUnionadPermissionCallBack(
+        notDetermined: () {
+          print("权限未确定");
+        },
+        restricted: () {
+          print("权限限制");
+        },
+        denied: () {
+          print("权限拒绝");
+        },
+        authorized: () {
+          print("权限同意");
+        },
+      ),
+    );
   }
 
   //横幅广告位
@@ -109,8 +109,9 @@ class FlutterGTAds {
   }
 
   /// 插屏广告
-  static showInsertAd(void Function() onClose) async {
-    if (!_configs.isNotEmpty) return Container();
+  static Future<bool> showInsertAd() async {
+    if (!_configs.isNotEmpty) return true;
+    Completer<bool> completer = Completer();
     var b = await GTAds.insertAd(
         codes: insertCodes(),
         isFull: false,
@@ -129,20 +130,21 @@ class FlutterGTAds {
           },
           onClose: (code) {
             debugPrint("插屏广告关闭 ${code.toJson()}");
-            onClose();
+            if (!completer.isCompleted) completer.complete(true);
           },
           onTimeout: () {
             debugPrint("插屏广告加载超时");
-            onClose();
+            if (!completer.isCompleted) completer.complete(true);
           },
           onEnd: () {
             debugPrint("插屏广告所有广告位都加载失败");
-            onClose();
+            if (!completer.isCompleted) completer.complete(true);
           },
         ));
     if (b) {
       debugPrint("插屏广告开始请求");
     }
+    return await completer.future;
   }
 
   static showRewardAd({required Function(GTAdsCode, bool) onVerifyClose}) async {
