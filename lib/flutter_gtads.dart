@@ -2,8 +2,9 @@ library flutter_gtads;
 
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
+import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:gtads/gtads.dart';
 import 'package:gtads_csj/gtads_csj.dart';
 import 'package:gtads_ks/gtads_ks.dart';
@@ -45,6 +46,7 @@ class FlutterGTAds {
     //初始化广告
     List<Map<String, bool>> initAd = await GTAds.init(isDebug: kDebugMode);
     debugPrint("广告初始化结果$initAd");
+
     FlutterUnionad.requestPermissionIfNecessary(
       callBack: FlutterUnionadPermissionCallBack(
         notDetermined: () {
@@ -62,6 +64,40 @@ class FlutterGTAds {
       ),
     );
   }
+
+  // Platform messages are asynchronous, so we initialize in an async method.
+  static Future<void> initPlugin(BuildContext context) async {
+    final TrackingStatus status = await AppTrackingTransparency.trackingAuthorizationStatus;
+    // If the system can show an authorization request dialog
+    if (status == TrackingStatus.notDetermined) {
+      // Show a custom explainer dialog before the system dialog
+      await showCustomTrackingDialog(context);
+      // Wait for dialog popping animation
+      await Future.delayed(const Duration(milliseconds: 200));
+      // Request system's tracking authorization dialog
+      final TrackingStatus status = await AppTrackingTransparency.requestTrackingAuthorization();
+    }
+
+    final uuid = await AppTrackingTransparency.getAdvertisingIdentifier();
+    print("UUID: $uuid");
+  }
+
+  static Future<void> showCustomTrackingDialog(BuildContext context) async => await showDialog<void>(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('万源阅读'),
+          content: const Text(
+            '我们通过显示广告来保持这个应用程序免费'
+            '为了向您提供更优质、安全的个性化服务及内容，需要您允许使用相关权限',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('确定'),
+            ),
+          ],
+        ),
+      );
 
   //横幅广告位
   static List<GTAdsCode> bannerCodes() {
