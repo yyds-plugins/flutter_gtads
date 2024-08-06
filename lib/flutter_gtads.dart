@@ -3,6 +3,7 @@ library flutter_gtads;
 import 'dart:async';
 
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gtads/gtads.dart';
@@ -56,7 +57,7 @@ class FlutterGTAds {
     // If the system can show an authorization request dialog
     if (status == TrackingStatus.notDetermined) {
       // Show a custom explainer dialog before the system dialog
-      await showCustomTrackingDialog(context);
+      // await showCustomTrackingDialog(context);
       // Wait for dialog popping animation
       await Future.delayed(const Duration(milliseconds: 200));
       // Request system's tracking authorization dialog
@@ -64,16 +65,16 @@ class FlutterGTAds {
     }
 
     final uuid = await AppTrackingTransparency.getAdvertisingIdentifier();
-    print("UUID: $uuid");
+    debugPrint("UUID: $uuid");
   }
 
-  static Future<void> showCustomTrackingDialog(BuildContext context) async => await showDialog<void>(
+  static Future<void> showCustomTrackingDialog(BuildContext context) async => await showCupertinoDialog<void>(
         context: context,
-        builder: (context) => AlertDialog(
+        builder: (context) => CupertinoAlertDialog(
           title: const Text('万源阅读'),
           content: const Text(
-            '我们通过显示广告来保持这个应用程序免费'
-            '为了向您提供更优质、安全的个性化服务及内容，需要您允许使用相关权限',
+            '我们通过显示广告来保持这个应用程序免费\n'
+            '为了向您提供更优质、安全的个性化服务及内容，需要您允许使用广告相关权限',
           ),
           actions: [
             TextButton(
