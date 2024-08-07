@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gtads/gtads.dart';
 
@@ -12,6 +13,45 @@ class AdSplashPage extends StatefulWidget {
 }
 
 class _AdSplashPageState extends State<AdSplashPage> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    FlutterUnionad.requestPermissionIfNecessary(
+      callBack: FlutterUnionadPermissionCallBack(
+        notDetermined: () {
+          debugPrint("权限未确定");
+        },
+        restricted: () {
+          debugPrint("权限限制");
+        },
+        denied: () {
+          debugPrint("权限拒绝");
+        },
+        authorized: () {
+          debugPrint("权限同意");
+        },
+      ),
+    );
+  }
+
+  static Future<void> showCustomTrackingDialog(BuildContext context) async => await showCupertinoDialog<void>(
+        context: context,
+        builder: (context) => CupertinoAlertDialog(
+          title: const Text('万源阅读'),
+          content: const Text(
+            '我们通过显示广告来保持这个应用程序免费\n'
+            '为了向您提供更优质、安全的个性化服务及内容，需要您允许使用广告相关权限',
+          ),
+          actions: [
+            CupertinoDialogAction(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('确定'),
+            ),
+          ],
+        ),
+      );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -2,12 +2,6 @@
   "configVersion": 2,
   "packages": [
     {
-      "name": "app_tracking_transparency",
-      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/app_tracking_transparency-2.0.6",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "async",
       "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/async-2.11.0",
       "packageUri": "lib/",
@@ -248,7 +242,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-08-06T06:48:37.386711Z",
+  "generated": "2024-08-07T01:04:12.538005Z",
   "generator": "pub",
   "generatorVersion": "3.4.4",
   "flutterRoot": "file:///Users/yun/flutter",
