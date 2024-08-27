@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gtads/gtads.dart';
 
 import 'flutter_gtads.dart';
+import 'log_util.dart';
 
 class AdSplashPage extends StatefulWidget {
   final void Function() dismiss;
@@ -20,16 +21,16 @@ class _AdSplashPageState extends State<AdSplashPage> {
     FlutterUnionad.requestPermissionIfNecessary(
       callBack: FlutterUnionadPermissionCallBack(
         notDetermined: () {
-          debugPrint("权限未确定");
+          LogUtil.dp("权限未确定");
         },
         restricted: () {
-          debugPrint("权限限制");
+          LogUtil.dp("权限限制");
         },
         denied: () {
-          debugPrint("权限拒绝");
+          LogUtil.dp("权限拒绝");
         },
         authorized: () {
-          debugPrint("权限同意");
+          LogUtil.dp("权限同意");
         },
       ),
     );
@@ -63,25 +64,25 @@ class _AdSplashPageState extends State<AdSplashPage> {
       timeout: 10,
       callBack: GTAdsCallBack(
         onShow: (code) {
-          debugPrint("开屏显示 ${code.toJson()}");
+          LogUtil.dp("开屏显示 ${code.toJson()}");
         },
         onClick: (code) {
-          debugPrint("开屏点击 ${code.toJson()}");
+          LogUtil.dp("开屏点击 ${code.toJson()}");
         },
         onFail: (code, message) {
-          debugPrint("开屏错误 ${code?.toJson()} $message");
+          LogUtil.dp("开屏错误 ${code?.toJson()} $message");
           widget.dismiss();
         },
         onClose: (code) {
-          debugPrint("开屏关闭 ${code.toJson()}");
+          LogUtil.dp("开屏关闭 ${code.toJson()}");
           widget.dismiss();
         },
         onTimeout: () {
-          debugPrint("开屏加载超时");
+          LogUtil.dp("开屏加载超时");
           widget.dismiss();
         },
         onEnd: () {
-          debugPrint("开屏所有广告位都加载失败");
+          LogUtil.dp("开屏所有广告位都加载失败");
           widget.dismiss();
         },
       ),

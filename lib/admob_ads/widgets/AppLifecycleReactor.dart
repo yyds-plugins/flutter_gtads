@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
+import '../../log_util.dart';
 import 'AppOpenAdManager.dart';
 
 class AppLifecycleReactor {
@@ -14,7 +14,7 @@ class AppLifecycleReactor {
   }
 
   void _onAppStateChanged(AppState appState) {
-    debugPrint('New AppState state: $appState');
+    LogUtil.dp('New AppState state: $appState');
     if (appState == AppState.foreground) {
       appOpenAdManager.showAdIfAvailable();
     }

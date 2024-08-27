@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gtads/gtads.dart';
 
 import 'flutter_gtads.dart';
+import 'log_util.dart';
 
 class BannerView extends StatefulWidget {
   final double h;
@@ -31,22 +32,22 @@ class _BannerViewState extends State<BannerView> with AutomaticKeepAliveClientMi
         //回调
         callBack: GTAdsCallBack(
           onShow: (code) {
-            debugPrint("Banner显示 ${code.toJson()}");
+            LogUtil.dp("Banner显示 ${code.toJson()}");
           },
           onClick: (code) {
-            debugPrint("Banner点击 ${code.toJson()}");
+            LogUtil.dp("Banner点击 ${code.toJson()}");
           },
           onFail: (code, message) {
-            debugPrint("Banner错误 ${code?.toJson()} $message");
+            LogUtil.dp("Banner错误 ${code?.toJson()} $message");
           },
           onClose: (code) {
-            debugPrint("Banner关闭 ${code.toJson()}");
+            LogUtil.dp("Banner关闭 ${code.toJson()}");
           },
           onTimeout: () {
-            debugPrint("Banner加载超时");
+            LogUtil.dp("Banner加载超时");
           },
           onEnd: () {
-            debugPrint("Banner所有广告位都加载失败");
+            LogUtil.dp("Banner所有广告位都加载失败");
           },
         ));
   }

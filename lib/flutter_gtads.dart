@@ -13,6 +13,7 @@ import 'ad_splash.dart';
 import 'adid.dart';
 import 'banner_view.dart';
 import 'feed_view.dart';
+import 'log_util.dart';
 
 export 'package:gtads_csj/gtads_csj.dart';
 
@@ -46,7 +47,7 @@ class FlutterGTAds {
     GTAds.addProviders(providers);
     //初始化广告
     List<Map<String, bool>> initAd = await GTAds.init(isDebug: kDebugMode);
-    debugPrint("广告初始化结果$initAd");
+    LogUtil.dp("广告初始化结果$initAd");
   }
 
   //横幅广告位
@@ -106,29 +107,29 @@ class FlutterGTAds {
         model: GTAdsModel.RANDOM,
         callBack: GTAdsCallBack(
           onShow: (code) {
-            debugPrint("插屏广告显示 ${code.toJson()}");
+            LogUtil.dp("插屏广告显示 ${code.toJson()}");
           },
           onFail: (code, message) {
-            debugPrint("插屏广告失败 ${code?.toJson()} $message");
+            LogUtil.dp("插屏广告失败 ${code?.toJson()} $message");
           },
           onClick: (code) {
-            debugPrint("插屏广告点击 ${code.toJson()}");
+            LogUtil.dp("插屏广告点击 ${code.toJson()}");
           },
           onClose: (code) {
-            debugPrint("插屏广告关闭 ${code.toJson()}");
+            LogUtil.dp("插屏广告关闭 ${code.toJson()}");
             if (!completer.isCompleted) completer.complete(true);
           },
           onTimeout: () {
-            debugPrint("插屏广告加载超时");
+            LogUtil.dp("插屏广告加载超时");
             if (!completer.isCompleted) completer.complete(true);
           },
           onEnd: () {
-            debugPrint("插屏广告所有广告位都加载失败");
+            LogUtil.dp("插屏广告所有广告位都加载失败");
             if (!completer.isCompleted) completer.complete(true);
           },
         ));
     if (b) {
-      debugPrint("插屏广告开始请求");
+      LogUtil.dp("插屏广告开始请求");
     }
     return await completer.future;
   }
@@ -150,37 +151,37 @@ class FlutterGTAds {
       model: GTAdsModel.RANDOM,
       callBack: GTAdsCallBack(
         onShow: (code) {
-          debugPrint("激励广告显示 ${code.toJson()}");
+          LogUtil.dp("激励广告显示 ${code.toJson()}");
         },
         onFail: (code, message) {
-          debugPrint("激励广告失败 ${code?.toJson()} $message");
+          LogUtil.dp("激励广告失败 ${code?.toJson()} $message");
         },
         onClick: (code) {
-          debugPrint("激励广告点击 ${code.toJson()}");
+          LogUtil.dp("激励广告点击 ${code.toJson()}");
         },
         onClose: (code) {
           onVerifyClose(code, adVerify);
-          debugPrint("激励广告严重关闭 ${code.toJson()}");
+          LogUtil.dp("激励广告严重关闭 ${code.toJson()}");
         },
         onVerify: (code, verify, transId, rewardName, rewardAmount) {
           adVerify = verify;
-          debugPrint("激励广告奖励验证 ${code.toJson()} $verify $transId $rewardName $rewardAmount");
+          LogUtil.dp("激励广告奖励验证 ${code.toJson()} $verify $transId $rewardName $rewardAmount");
         },
         onExpand: (code, param) {
-          debugPrint("激励广告自定义参数 ${code.toJson()} $param");
+          LogUtil.dp("激励广告自定义参数 ${code.toJson()} $param");
         },
         onTimeout: () {
-          debugPrint("激励广告加载超时");
+          LogUtil.dp("激励广告加载超时");
         },
         onEnd: () {
-          debugPrint("激励广告所有广告位都加载失败");
+          LogUtil.dp("激励广告所有广告位都加载失败");
         },
       ),
     );
     if (b) {
-      debugPrint("激励广告开始请求");
+      LogUtil.dp("激励广告开始请求");
     } else {
-      debugPrint("激励广告开始请求失败");
+      LogUtil.dp("激励广告开始请求失败");
     }
   }
 }

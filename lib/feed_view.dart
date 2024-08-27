@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gtads/gtads.dart';
 
 import 'flutter_gtads.dart';
+import 'log_util.dart';
 
 class FeedView extends StatefulWidget {
   final void Function()? onRenderSuccess;
@@ -32,22 +33,22 @@ class _FeedViewState extends State<FeedView> with AutomaticKeepAliveClientMixin 
       model: GTAdsModel.RANDOM,
       callBack: GTAdsCallBack(
         onShow: (code) {
-          debugPrint("信息流显示 ${code.toJson()}");
+          LogUtil.dp("信息流显示 ${code.toJson()}");
         },
         onClick: (code) {
-          debugPrint("信息流点击 ${code.toJson()}");
+          LogUtil.dp("信息流点击 ${code.toJson()}");
         },
         onFail: (code, message) {
-          debugPrint("信息流错误 ${code?.toJson()} $message");
+          LogUtil.dp("信息流错误 ${code?.toJson()} $message");
         },
         onClose: (code) {
-          debugPrint("信息流关闭 ${code.toJson()}");
+          LogUtil.dp("信息流关闭 ${code.toJson()}");
         },
         onTimeout: () {
-          debugPrint("信息流加载超时");
+          LogUtil.dp("信息流加载超时");
         },
         onEnd: () {
-          debugPrint("信息流所有广告位都加载失败");
+          LogUtil.dp("信息流所有广告位都加载失败");
         },
       ),
     );

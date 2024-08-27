@@ -5,6 +5,8 @@ import 'package:flutter_gtads/admob_ads/widgets/AppLifecycleReactor.dart';
 import 'package:flutter_gtads/admob_ads/widgets/AppOpenAdManager.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
+import '../log_util.dart';
+
 class AdmobAd {
   static initSDK() async {
     MobileAds.instance.initialize();
@@ -22,23 +24,23 @@ class AdmobAd {
         request: const AdRequest(),
         adLoadCallback: InterstitialAdLoadCallback(
           onAdLoaded: (InterstitialAd interstitialAd) {
-            debugPrint('$interstitialAd loaded');
+            LogUtil.dp('$interstitialAd loaded');
             interstitialAd.setImmersiveMode(true);
             interstitialAd.fullScreenContentCallback = FullScreenContentCallback(
-              onAdShowedFullScreenContent: (InterstitialAd ad) => debugPrint('ad onAdShowedFullScreenContent.'),
+              onAdShowedFullScreenContent: (InterstitialAd ad) => LogUtil.dp('ad onAdShowedFullScreenContent.'),
               onAdDismissedFullScreenContent: (InterstitialAd ad) {
-                debugPrint('$ad onAdDismissedFullScreenContent.');
+                LogUtil.dp('$ad onAdDismissedFullScreenContent.');
                 ad.dispose();
               },
               onAdFailedToShowFullScreenContent: (InterstitialAd ad, AdError error) {
-                debugPrint('$ad onAdFailedToShowFullScreenContent: $error');
+                LogUtil.dp('$ad onAdFailedToShowFullScreenContent: $error');
                 ad.dispose();
               },
             );
             interstitialAd.show();
           },
           onAdFailedToLoad: (LoadAdError error) {
-            debugPrint('InterstitialAd failed to load: $error.');
+            LogUtil.dp('InterstitialAd failed to load: $error.');
           },
         ));
   }
@@ -49,27 +51,27 @@ class AdmobAd {
         request: const AdRequest(),
         rewardedAdLoadCallback: RewardedAdLoadCallback(
           onAdLoaded: (RewardedAd rewardedAd) {
-            debugPrint('$rewardedAd loaded.');
+            LogUtil.dp('$rewardedAd loaded.');
 
             rewardedAd.fullScreenContentCallback = FullScreenContentCallback(
-              onAdShowedFullScreenContent: (RewardedAd ad) => debugPrint('ad onAdShowedFullScreenContent.'),
+              onAdShowedFullScreenContent: (RewardedAd ad) => LogUtil.dp('ad onAdShowedFullScreenContent.'),
               onAdDismissedFullScreenContent: (RewardedAd ad) {
-                debugPrint('$ad onAdDismissedFullScreenContent.');
+                LogUtil.dp('$ad onAdDismissedFullScreenContent.');
                 ad.dispose();
               },
               onAdFailedToShowFullScreenContent: (RewardedAd ad, AdError error) {
-                debugPrint('$ad onAdFailedToShowFullScreenContent: $error');
+                LogUtil.dp('$ad onAdFailedToShowFullScreenContent: $error');
                 ad.dispose();
               },
             );
 
             rewardedAd.setImmersiveMode(true);
             rewardedAd.show(onUserEarnedReward: (AdWithoutView ad, RewardItem reward) {
-              debugPrint('$ad with reward $RewardItem(${reward.amount}, ${reward.type})');
+              LogUtil.dp('$ad with reward $RewardItem(${reward.amount}, ${reward.type})');
             });
           },
           onAdFailedToLoad: (LoadAdError error) {
-            debugPrint('RewardedAd failed to load: $error');
+            LogUtil.dp('RewardedAd failed to load: $error');
           },
         ));
   }
@@ -80,26 +82,26 @@ class AdmobAd {
         request: const AdRequest(),
         rewardedInterstitialAdLoadCallback: RewardedInterstitialAdLoadCallback(
           onAdLoaded: (RewardedInterstitialAd ad) {
-            debugPrint('$ad loaded.');
+            LogUtil.dp('$ad loaded.');
             ad.fullScreenContentCallback = FullScreenContentCallback(
-              onAdShowedFullScreenContent: (RewardedInterstitialAd ad) => debugPrint('$ad onAdShowedFullScreenContent.'),
+              onAdShowedFullScreenContent: (RewardedInterstitialAd ad) => LogUtil.dp('$ad onAdShowedFullScreenContent.'),
               onAdDismissedFullScreenContent: (RewardedInterstitialAd ad) {
-                debugPrint('$ad onAdDismissedFullScreenContent.');
+                LogUtil.dp('$ad onAdDismissedFullScreenContent.');
                 ad.dispose();
               },
               onAdFailedToShowFullScreenContent: (RewardedInterstitialAd ad, AdError error) {
-                debugPrint('$ad onAdFailedToShowFullScreenContent: $error');
+                LogUtil.dp('$ad onAdFailedToShowFullScreenContent: $error');
                 ad.dispose();
               },
             );
 
             ad.setImmersiveMode(true);
             ad.show(onUserEarnedReward: (AdWithoutView ad, RewardItem reward) {
-              debugPrint('$ad with reward $RewardItem(${reward.amount}, ${reward.type})');
+              LogUtil.dp('$ad with reward $RewardItem(${reward.amount}, ${reward.type})');
             });
           },
           onAdFailedToLoad: (LoadAdError error) {
-            debugPrint('RewardedInterstitialAd failed to load: $error');
+            LogUtil.dp('RewardedInterstitialAd failed to load: $error');
           },
         ));
   }
@@ -112,14 +114,14 @@ class AdmobAd {
         factoryId: '',
         listener: NativeAdListener(
           onAdLoaded: (Ad ad) {
-            debugPrint('$NativeAd loaded.');
+            LogUtil.dp('$NativeAd loaded.');
           },
           onAdFailedToLoad: (Ad ad, LoadAdError error) {
-            debugPrint('$NativeAd failedToLoad: $error');
+            LogUtil.dp('$NativeAd failedToLoad: $error');
             ad.dispose();
           },
-          onAdOpened: (Ad ad) => debugPrint('$NativeAd onAdOpened.'),
-          onAdClosed: (Ad ad) => debugPrint('$NativeAd onAdClosed.'),
+          onAdOpened: (Ad ad) => LogUtil.dp('$NativeAd onAdOpened.'),
+          onAdClosed: (Ad ad) => LogUtil.dp('$NativeAd onAdClosed.'),
         ))
       ..load();
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
+import '../../log_util.dart';
+
 class AdmobBannerView extends StatefulWidget {
   final double h;
   const AdmobBannerView({super.key, this.h = 10});
@@ -18,14 +20,14 @@ class _AdmobBannerViewState extends State<AdmobBannerView> with AutomaticKeepAli
         adUnitId: '',
         listener: BannerAdListener(
           onAdLoaded: (Ad ad) {
-            debugPrint('$BannerAd loaded.');
+            LogUtil.dp('$BannerAd loaded.');
           },
           onAdFailedToLoad: (Ad ad, LoadAdError error) {
-            debugPrint('$BannerAd failedToLoad: $error');
+            LogUtil.dp('$BannerAd failedToLoad: $error');
             ad.dispose();
           },
-          onAdOpened: (Ad ad) => debugPrint('$BannerAd onAdOpened.'),
-          onAdClosed: (Ad ad) => debugPrint('$BannerAd onAdClosed.'),
+          onAdOpened: (Ad ad) => LogUtil.dp('$BannerAd onAdOpened.'),
+          onAdClosed: (Ad ad) => LogUtil.dp('$BannerAd onAdClosed.'),
         ),
         request: const AdRequest())
       ..load();
