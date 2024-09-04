@@ -9,7 +9,6 @@ import 'package:gtads_csj/gtads_csj.dart';
 import 'package:gtads_ks/gtads_ks.dart';
 import 'package:gtads_ylh/gtads_ylh.dart';
 
-import 'ad_splash.dart';
 import 'adid.dart';
 import 'banner_view.dart';
 import 'feed_view.dart';
@@ -78,9 +77,39 @@ class FlutterGTAds {
   }
 
   /// 插屏
-  static Widget splashWidget({required void Function() dismiss}) {
+  static Widget splashWidget(BuildContext context, {void Function()? dismiss}) {
     if (!_configs.isNotEmpty) return Container();
-    return AdSplashPage(dismiss: dismiss);
+    return GTAdsSplashWidget(
+      codes: FlutterGTAds.splashCodes(),
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height,
+      //超时时间 当广告失败后会依次重试其他广告 直至所有广告均加载失败 设置超时时间可提前取消
+      timeout: 10,
+      callBack: GTAdsCallBack(
+        onShow: (code) {
+          debugPrint("开屏显示 ${code.toJson()}");
+        },
+        onClick: (code) {
+          debugPrint("开屏点击 ${code.toJson()}");
+        },
+        onFail: (code, message) {
+          debugPrint("开屏错误 ${code?.toJson()} $message");
+          if (dismiss != null) dismiss();
+        },
+        onClose: (code) {
+          debugPrint("开屏关闭 ${code.toJson()}");
+          if (dismiss != null) dismiss();
+        },
+        onTimeout: () {
+          debugPrint("开屏加载超时");
+          if (dismiss != null) dismiss();
+        },
+        onEnd: () {
+          debugPrint("开屏所有广告位都加载失败");
+          if (dismiss != null) dismiss();
+        },
+      ),
+    );
   }
 
   /// 显示信息流
