@@ -77,7 +77,9 @@ class FlutterGTAds {
   }
 
   /// 插屏
-  static Widget splashWidget(BuildContext context, {void Function()? dismiss}) {
+
+
+  static Widget splashWidget(BuildContext context, {required void Function() close}) {
     if (!_configs.isNotEmpty) return Container();
     return GTAdsSplashWidget(
       codes: FlutterGTAds.splashCodes(),
@@ -94,23 +96,26 @@ class FlutterGTAds {
         },
         onFail: (code, message) {
           debugPrint("开屏错误 ${code?.toJson()} $message");
-          if (dismiss != null) dismiss();
+          close();
         },
         onClose: (code) {
           debugPrint("开屏关闭 ${code.toJson()}");
-          if (dismiss != null) dismiss();
+          close();
         },
         onTimeout: () {
           debugPrint("开屏加载超时");
-          if (dismiss != null) dismiss();
+          close();
         },
         onEnd: () {
           debugPrint("开屏所有广告位都加载失败");
-          if (dismiss != null) dismiss();
+          close();
         },
       ),
     );
   }
+
+
+
 
   /// 显示信息流
   static Widget feedView() {
