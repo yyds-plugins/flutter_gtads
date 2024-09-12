@@ -13,7 +13,7 @@ dependencies:
 
   gtads: ^1.3.0 #广告基础库 必须引入  需要使用的广告按需引入,以下可选
   gtads_csj: ^1.3.10 #字节穿山甲广告
-  gtads_ylh: ^1.3.6 # 腾讯优量汇广告
+  gtads_ylh: ^1.3.7 # 腾讯优量汇广告
   gtads_ks: ^1.3.1 # 快手广告
   #  gtads_bqt: ^1.3.1 #白青藤
   google_mobile_ads: ^5.0.0 #谷歌广告
