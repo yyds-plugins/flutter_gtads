@@ -80,7 +80,10 @@ class FlutterGTAds {
 
 
   static Widget splashWidget(BuildContext context, {required void Function() close}) {
-    if (!_configs.isNotEmpty) return Container();
+    if (!_configs.isNotEmpty) {
+      close();
+      return Container();
+    }
     return GTAdsSplashWidget(
       codes: FlutterGTAds.splashCodes(),
       width: MediaQuery.of(context).size.width,

@@ -79,10 +79,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_unionad
-      sha256: "5cc3883d9e8fff9d2a3c83079cf79c085817323218ab357c3a40561d842d1a10"
+      sha256: "1b9975e6bfa5604e06641742c198255bd7d17b25bfb02639462b1fc93ad2be63"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.0.8"
+    version: "2.0.9"
   google_mobile_ads:
     dependency: "direct main"
     description:
@@ -103,10 +103,10 @@ packages:
     dependency: "direct main"
     description:
       name: gtads_csj
-      sha256: cc2306c52e8e1ec024ca5198270e93d38c05888c8c222c5ba02b22d81741b838
+      sha256: "2411669c80af6564113cb78c867bcc4e218bbd80890f8cb01aef16c2b4b8b477"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.3.10"
+    version: "1.3.11"
   gtads_ks:
     dependency: "direct main"
     description:
