@@ -1,6 +1,7 @@
 library flutter_gtads;
 
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -23,10 +24,20 @@ class FlutterGTAds {
     return inDebugMode;
   }
 
+  static List<AdID> get configs => _configs;
+
   static List<AdID> _configs = [];
 
   /// 初始化
-  static Future<void> initSDK(List<AdID> configs) async {
+  static Future<void> initSDK({AdID? csj, AdID? gromore, AdID? ylh, AdID? ks}) async {
+    bool randomBool = Random().nextBool();
+
+    List<AdID> configs = [];
+    if (csj != null) configs.add(csj);
+    if (gromore != null) configs.add(gromore);
+    if (ylh != null) configs.add(ylh);
+    if (ks != null) configs.add(ks);
+
     _configs = configs;
     if (!_configs.isNotEmpty) return;
 
@@ -39,7 +50,7 @@ class FlutterGTAds {
       }
       if (e.alias == Alias.ylh) providers.add(GTAdsYlhProvider(e.alias.code, e.androidId, e.iosId));
       if (e.alias == Alias.ks) providers.add(GTAdsKSProvider(e.alias.code, e.androidId, e.iosId));
-      // if (e.alias == Alias.bqt) list.add(GTAdsBqtProvider(e.alias.code, e.androidId, e.iosId));
+      // if (e.alias == Alias.bqt) providers.add(GTAdsBqtProvider(e.alias.code, e.androidId, e.iosId));
     }
 
     //添加广告支持
@@ -78,7 +89,6 @@ class FlutterGTAds {
 
   /// 插屏
 
-
   static Widget splashWidget(BuildContext context, {required void Function() close}) {
     if (!_configs.isNotEmpty) {
       close();
@@ -116,9 +126,6 @@ class FlutterGTAds {
       ),
     );
   }
-
-
-
 
   /// 显示信息流
   static Widget feedView() {
