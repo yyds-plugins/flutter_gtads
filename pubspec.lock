@@ -66,10 +66,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_tencentad
-      sha256: "5528d6898db2e0921725cd17e089477793214dd795a65a9ee6010344787d4651"
+      sha256: "3dca0ebffb2369405a1fb5358b1406bf453c238f56792d2be676e3c346fe2276"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.2.23"
+    version: "1.2.24"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -79,10 +79,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_unionad
-      sha256: "1b9975e6bfa5604e06641742c198255bd7d17b25bfb02639462b1fc93ad2be63"
+      sha256: "25b457d7be712763f65ed3a757243183a465b4e7fc1220f9afa2d3a91a6ca632"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.0.9"
+    version: "2.0.10"
   google_mobile_ads:
     dependency: "direct main"
     description:
@@ -103,10 +103,10 @@ packages:
     dependency: "direct main"
     description:
       name: gtads_csj
-      sha256: "2411669c80af6564113cb78c867bcc4e218bbd80890f8cb01aef16c2b4b8b477"
+      sha256: "0ec869a00e040bdad0da266763407356d10b2220fd4878a5980926b71203b0e9"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.3.11"
+    version: "1.3.12"
   gtads_ks:
     dependency: "direct main"
     description:
@@ -119,10 +119,10 @@ packages:
     dependency: "direct main"
     description:
       name: gtads_ylh
-      sha256: dceacac63e91d7de714881871f001f6fa9bb94ac9a086c3ccc3dd77b1b851d83
+      sha256: "7d2119ed3ff9c904a4fea92799d2dc8bf651ef33e64a66817e9d43abf740a9d7"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.3.7"
+    version: "1.3.8"
   ksad:
     dependency: transitive
     description:
@@ -268,10 +268,10 @@ packages:
     dependency: transitive
     description:
       name: vm_service
-      sha256: f652077d0bdf60abe4c1f6377448e8655008eef28f128bc023f7b5e8dfeb48fc
+      sha256: "5c5f338a667b4c644744b661f309fb8080bb94b18a7e91ef1dbd343bed00ed6d"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "14.2.4"
+    version: "14.2.5"
   webview_flutter:
     dependency: transitive
     description:

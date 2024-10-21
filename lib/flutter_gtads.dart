@@ -1,7 +1,6 @@
 library flutter_gtads;
 
 import 'dart:async';
-import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -29,14 +28,11 @@ class FlutterGTAds {
   static List<AdID> _configs = [];
 
   /// 初始化
-  static Future<void> initSDK({AdID? csj, AdID? gromore, AdID? ylh, AdID? ks}) async {
-    bool randomBool = Random().nextBool();
-
-    List<AdID> configs = [];
-    if (csj != null) configs.add(csj);
-    if (gromore != null) configs.add(gromore);
-    if (ylh != null) configs.add(ylh);
-    if (ks != null) configs.add(ks);
+  static Future<void> initSDK({List<AdID> configs = const []}) async {
+    // if (csj != null) configs.add(csj);
+    // if (gromore != null) configs.add(gromore);
+    // if (ylh != null) configs.add(ylh);
+    // if (ks != null) configs.add(ks);
 
     _configs = configs;
     if (!_configs.isNotEmpty) return;
