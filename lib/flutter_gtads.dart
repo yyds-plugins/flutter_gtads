@@ -35,10 +35,14 @@ class FlutterGTAds {
     // if (ks != null) configs.add(ks);
 
     _configs = configs;
+
+
     if (!_configs.isNotEmpty) return;
 
     List<GTAdsProvider> providers = [];
     for (var e in configs) {
+      LogUtil.dp("alias=${e.alias}");
+
       if (e.alias == Alias.csj || e.alias == Alias.gromore) {
         final provider = GTAdsCsjProvider(e.alias.code, e.androidId, e.iosId, appName: 'X');
         provider.setUseMediation(e.alias == Alias.gromore);
