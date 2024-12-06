@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:gtads/gtads.dart';
+import 'package:gtads_bqt/gtads_bqt.dart';
 import 'package:gtads_csj/gtads_csj.dart';
 import 'package:gtads_ks/gtads_ks.dart';
 import 'package:gtads_ylh/gtads_ylh.dart';
@@ -29,13 +30,7 @@ class FlutterGTAds {
 
   /// 初始化
   static Future<void> initSDK({List<AdID> configs = const []}) async {
-    // if (csj != null) configs.add(csj);
-    // if (gromore != null) configs.add(gromore);
-    // if (ylh != null) configs.add(ylh);
-    // if (ks != null) configs.add(ks);
-
     _configs = configs;
-
 
     if (!_configs.isNotEmpty) return;
 
@@ -50,7 +45,7 @@ class FlutterGTAds {
       }
       if (e.alias == Alias.ylh) providers.add(GTAdsYlhProvider(e.alias.code, e.androidId, e.iosId));
       if (e.alias == Alias.ks) providers.add(GTAdsKSProvider(e.alias.code, e.androidId, e.iosId));
-      // if (e.alias == Alias.bqt) providers.add(GTAdsBqtProvider(e.alias.code, e.androidId, e.iosId));
+      if (e.alias == Alias.bqt) providers.add(GTAdsBqtProvider(e.alias.code, e.androidId, e.iosId));
     }
 
     //添加广告支持
@@ -62,29 +57,59 @@ class FlutterGTAds {
 
   //横幅广告位
   static List<GTAdsCode> bannerCodes() {
-    return _configs.map((e) => GTAdsCode(alias: e.alias.code, probability: 1, androidId: e.androidBannerId, iosId: e.iosBannerId)).toList();
+    return _configs
+        .map((e) => GTAdsCode(
+            alias: e.alias.code,
+            probability: 1,
+            androidId: e.androidBannerId,
+            iosId: e.iosBannerId))
+        .toList();
   }
 
   //信息流广告位
   static List<GTAdsCode> nativeCodes() {
-    var list = _configs.map((e) => GTAdsCode(alias: e.alias.code, probability: 1, androidId: e.androidNativeId, iosId: e.iosNativeId)).toList();
+    var list = _configs
+        .map((e) => GTAdsCode(
+            alias: e.alias.code,
+            probability: 1,
+            androidId: e.androidNativeId,
+            iosId: e.iosNativeId))
+        .toList();
     list = list.where((e) => e.alias != Alias.ks.code).toList();
     return list;
   }
 
   //开屏广告位
   static List<GTAdsCode> splashCodes() {
-    return _configs.map((e) => GTAdsCode(alias: e.alias.code, probability: 1, androidId: e.androidSplashId, iosId: e.iosSplashId)).toList();
+    return _configs
+        .map((e) => GTAdsCode(
+            alias: e.alias.code,
+            probability: 1,
+            androidId: e.androidSplashId,
+            iosId: e.iosSplashId))
+        .toList();
   }
 
   //激励广告位
   static List<GTAdsCode> rewardCodes() {
-    return _configs.map((e) => GTAdsCode(alias: e.alias.code, probability: 1, androidId: e.androidRewardId, iosId: e.iosRewardId)).toList();
+    return _configs
+        .map((e) => GTAdsCode(
+            alias: e.alias.code,
+            probability: 1,
+            androidId: e.androidRewardId,
+            iosId: e.iosRewardId))
+        .toList();
   }
 
   //插屏广告位
   static List<GTAdsCode> insertCodes() {
-    return _configs.map((e) => GTAdsCode(alias: e.alias.code, probability: 1, androidId: e.androidInsertId, iosId: e.iosInsertId)).toList();
+    return _configs
+        .map((e) => GTAdsCode(
+            alias: e.alias.code,
+            probability: 1,
+            androidId: e.androidInsertId,
+            iosId: e.iosInsertId))
+        .toList();
   }
 
   /// 插屏
