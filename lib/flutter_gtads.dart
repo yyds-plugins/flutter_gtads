@@ -1,6 +1,7 @@
 library flutter_gtads;
 
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -38,11 +39,14 @@ class FlutterGTAds {
     for (var e in configs) {
       LogUtil.dp("alias=${e.alias}");
 
+
+
       if (e.alias == Alias.csj || e.alias == Alias.gromore) {
         final provider = GTAdsCsjProvider(e.alias.code, e.androidId, e.iosId, appName: 'X');
         provider.setUseMediation(e.alias == Alias.gromore);
         providers.add(provider);
       }
+
       if (e.alias == Alias.ylh) providers.add(GTAdsYlhProvider(e.alias.code, e.androidId, e.iosId));
       if (e.alias == Alias.ks) providers.add(GTAdsKSProvider(e.alias.code, e.androidId, e.iosId));
       if (e.alias == Alias.bqt) providers.add(GTAdsBqtProvider(e.alias.code, e.androidId, e.iosId));
@@ -114,9 +118,9 @@ class FlutterGTAds {
 
   /// 插屏
 
-  static Widget splashWidget(BuildContext context, {required void Function() close}) {
+  static Widget splashWidget(BuildContext context, {required void Function() dismiss}) {
     if (!_configs.isNotEmpty) {
-      close();
+      dismiss();
       return Container();
     }
     return GTAdsSplashWidget(
@@ -134,19 +138,19 @@ class FlutterGTAds {
         },
         onFail: (code, message) {
           debugPrint("开屏错误 ${code?.toJson()} $message");
-          close();
+          dismiss();
         },
         onClose: (code) {
           debugPrint("开屏关闭 ${code.toJson()}");
-          close();
+          dismiss();
         },
         onTimeout: () {
           debugPrint("开屏加载超时");
-          close();
+          dismiss();
         },
         onEnd: () {
           debugPrint("开屏所有广告位都加载失败");
-          close();
+          dismiss();
         },
       ),
     );
@@ -180,6 +184,7 @@ class FlutterGTAds {
           },
           onFail: (code, message) {
             LogUtil.dp("插屏广告失败 ${code?.toJson()} $message");
+            if (!completer.isCompleted) completer.complete(true);
           },
           onClick: (code) {
             LogUtil.dp("插屏广告点击 ${code.toJson()}");

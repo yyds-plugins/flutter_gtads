@@ -1,7 +1,7 @@
 enum Alias {
   unknown(name: '', code: ''),
   csj(name: '穿山甲', code: 'csj'),
-  gromore(name: '穿山甲', code: 'gromore'),
+  gromore(name: 'Gromore', code: 'gromore'),
   ylh(name: '优量汇', code: 'ylh'),
   ks(name: '快手', code: 'ks'),
   bqt(name: '百青藤', code: 'bqt'),
