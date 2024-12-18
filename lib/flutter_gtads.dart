@@ -14,7 +14,6 @@ import 'package:gtads_ylh/gtads_ylh.dart';
 import 'adid.dart';
 import 'banner_view.dart';
 import 'feed_view.dart';
-import 'log_util.dart';
 
 export 'package:gtads_csj/gtads_csj.dart';
 
@@ -37,9 +36,7 @@ class FlutterGTAds {
 
     List<GTAdsProvider> providers = [];
     for (var e in configs) {
-      LogUtil.dp("alias=${e.alias}");
-
-
+      debugPrint("alias=${e.alias}");
 
       if (e.alias == Alias.csj || e.alias == Alias.gromore) {
         final provider = GTAdsCsjProvider(e.alias.code, e.androidId, e.iosId, appName: 'X');
@@ -56,7 +53,7 @@ class FlutterGTAds {
     GTAds.addProviders(providers);
     //初始化广告
     List<Map<String, bool>> initAd = await GTAds.init(isDebug: kDebugMode);
-    LogUtil.dp("广告初始化结果$initAd");
+    debugPrint("广告初始化结果$initAd");
   }
 
   //横幅广告位
@@ -180,30 +177,30 @@ class FlutterGTAds {
         model: GTAdsModel.RANDOM,
         callBack: GTAdsCallBack(
           onShow: (code) {
-            LogUtil.dp("插屏广告显示 ${code.toJson()}");
+            debugPrint("插屏广告显示 ${code.toJson()}");
           },
           onFail: (code, message) {
-            LogUtil.dp("插屏广告失败 ${code?.toJson()} $message");
+            debugPrint("插屏广告失败 ${code?.toJson()} $message");
             if (!completer.isCompleted) completer.complete(true);
           },
           onClick: (code) {
-            LogUtil.dp("插屏广告点击 ${code.toJson()}");
+            debugPrint("插屏广告点击 ${code.toJson()}");
           },
           onClose: (code) {
-            LogUtil.dp("插屏广告关闭 ${code.toJson()}");
+            debugPrint("插屏广告关闭 ${code.toJson()}");
             if (!completer.isCompleted) completer.complete(true);
           },
           onTimeout: () {
-            LogUtil.dp("插屏广告加载超时");
+            debugPrint("插屏广告加载超时");
             if (!completer.isCompleted) completer.complete(true);
           },
           onEnd: () {
-            LogUtil.dp("插屏广告所有广告位都加载失败");
+            debugPrint("插屏广告所有广告位都加载失败");
             if (!completer.isCompleted) completer.complete(true);
           },
         ));
     if (b) {
-      LogUtil.dp("插屏广告开始请求");
+      debugPrint("插屏广告开始请求");
     }
     return await completer.future;
   }
@@ -225,37 +222,37 @@ class FlutterGTAds {
       model: GTAdsModel.RANDOM,
       callBack: GTAdsCallBack(
         onShow: (code) {
-          LogUtil.dp("激励广告显示 ${code.toJson()}");
+          debugPrint("激励广告显示 ${code.toJson()}");
         },
         onFail: (code, message) {
-          LogUtil.dp("激励广告失败 ${code?.toJson()} $message");
+          debugPrint("激励广告失败 ${code?.toJson()} $message");
         },
         onClick: (code) {
-          LogUtil.dp("激励广告点击 ${code.toJson()}");
+          debugPrint("激励广告点击 ${code.toJson()}");
         },
         onClose: (code) {
           onVerifyClose(code, adVerify);
-          LogUtil.dp("激励广告严重关闭 ${code.toJson()}");
+          debugPrint("激励广告严重关闭 ${code.toJson()}");
         },
         onVerify: (code, verify, transId, rewardName, rewardAmount) {
           adVerify = verify;
-          LogUtil.dp("激励广告奖励验证 ${code.toJson()} $verify $transId $rewardName $rewardAmount");
+          debugPrint("激励广告奖励验证 ${code.toJson()} $verify $transId $rewardName $rewardAmount");
         },
         onExpand: (code, param) {
-          LogUtil.dp("激励广告自定义参数 ${code.toJson()} $param");
+          debugPrint("激励广告自定义参数 ${code.toJson()} $param");
         },
         onTimeout: () {
-          LogUtil.dp("激励广告加载超时");
+          debugPrint("激励广告加载超时");
         },
         onEnd: () {
-          LogUtil.dp("激励广告所有广告位都加载失败");
+          debugPrint("激励广告所有广告位都加载失败");
         },
       ),
     );
     if (b) {
-      LogUtil.dp("激励广告开始请求");
+      debugPrint("激励广告开始请求");
     } else {
-      LogUtil.dp("激励广告开始请求失败");
+      debugPrint("激励广告开始请求失败");
     }
   }
 }

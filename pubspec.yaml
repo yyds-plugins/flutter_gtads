@@ -16,7 +16,7 @@ dependencies:
   gtads_ylh: ^1.4.2 # 腾讯优量汇广告
   gtads_ks: ^1.4.1 # 快手广告
   gtads_bqt: ^1.4.1 #白青藤
-  google_mobile_ads: ^5.2.0 #谷歌广告
+
 
 dev_dependencies:
   flutter_test:

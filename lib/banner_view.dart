@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gtads/gtads.dart';
 
 import 'flutter_gtads.dart';
-import 'log_util.dart';
 
 class BannerView extends StatefulWidget {
   final double h;
@@ -23,7 +22,9 @@ class _BannerViewState extends State<BannerView> with AutomaticKeepAliveClientMi
   Widget build(BuildContext context) {
     super.build(context);
     return GTAdsBannerWidget(
-        codes: FlutterGTAds.bannerCodes().where((element) => (element.iosId!.isNotEmpty || element.androidId!.isNotEmpty)).toList(),
+        codes: FlutterGTAds.bannerCodes()
+            .where((element) => (element.iosId!.isNotEmpty || element.androidId!.isNotEmpty))
+            .toList(),
         width: MediaQuery.of(context).size.width,
         height: 75,
         //超时时间 当广告失败后会依次重试其他广告 直至所有广告均加载失败 设置超时时间可提前取消
@@ -32,22 +33,22 @@ class _BannerViewState extends State<BannerView> with AutomaticKeepAliveClientMi
         //回调
         callBack: GTAdsCallBack(
           onShow: (code) {
-            LogUtil.dp("Banner显示 ${code.toJson()}");
+            debugPrint("Banner显示 ${code.toJson()}");
           },
           onClick: (code) {
-            LogUtil.dp("Banner点击 ${code.toJson()}");
+            debugPrint("Banner点击 ${code.toJson()}");
           },
           onFail: (code, message) {
-            LogUtil.dp("Banner错误 ${code?.toJson()} $message");
+            debugPrint("Banner错误 ${code?.toJson()} $message");
           },
           onClose: (code) {
-            LogUtil.dp("Banner关闭 ${code.toJson()}");
+            debugPrint("Banner关闭 ${code.toJson()}");
           },
           onTimeout: () {
-            LogUtil.dp("Banner加载超时");
+            debugPrint("Banner加载超时");
           },
           onEnd: () {
-            LogUtil.dp("Banner所有广告位都加载失败");
+            debugPrint("Banner所有广告位都加载失败");
           },
         ));
   }
