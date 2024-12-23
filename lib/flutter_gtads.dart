@@ -5,6 +5,7 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_gtads/splash_page.dart';
 import 'package:gtads/gtads.dart';
 import 'package:gtads_bqt/gtads_bqt.dart';
 import 'package:gtads_csj/gtads_csj.dart';
@@ -151,6 +152,11 @@ class FlutterGTAds {
         },
       ),
     );
+  }
+
+  static Widget splashPage({required Widget nextPage}) {
+    if (!_configs.isNotEmpty) return Container();
+    return SplashPage(nextPage: nextPage);
   }
 
   /// 显示信息流
