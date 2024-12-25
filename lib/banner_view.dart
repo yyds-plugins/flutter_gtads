@@ -21,14 +21,16 @@ class _BannerViewState extends State<BannerView> with AutomaticKeepAliveClientMi
   @override
   Widget build(BuildContext context) {
     super.build(context);
+
+    final width = MediaQuery.of(context).size.width;
+    double height = width * 1 / 6.4;
+
     return GTAdsBannerWidget(
-        codes: FlutterGTAds.bannerCodes()
-            .where((element) => (element.iosId!.isNotEmpty || element.androidId!.isNotEmpty))
-            .toList(),
+        codes: FlutterGTAds.bannerCodes(),
         width: MediaQuery.of(context).size.width,
-        height: 75,
+        height: height,
         //超时时间 当广告失败后会依次重试其他广告 直至所有广告均加载失败 设置超时时间可提前取消
-        timeout: 1000,
+        timeout: 10,
         model: GTAdsModel.RANDOM,
         //回调
         callBack: GTAdsCallBack(

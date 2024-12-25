@@ -27,10 +27,11 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final codes = FlutterGTAds.splashCodes();
     return Container(
         color: Colors.white,
         child: GTAdsSplashWidget(
-          codes: FlutterGTAds.splashCodes(),
+          codes: codes,
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           //超时时间 当广告失败后会依次重试其他广告 直至所有广告均加载失败 设置超时时间可提前取消

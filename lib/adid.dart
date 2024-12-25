@@ -30,6 +30,7 @@ class AdID {
   final String androidSplashId;
   final String androidRewardId;
   final String androidInsertId;
+  final String androidRewardedInterstitialId;
   final String androidNativeId;
   final String androidBannerId;
 
@@ -37,6 +38,7 @@ class AdID {
   final String iosSplashId;
   final String iosRewardId;
   final String iosInsertId;
+  final String iosRewardedInterstitialId;
   final String iosNativeId;
   final String iosBannerId;
 
@@ -46,12 +48,14 @@ class AdID {
       this.androidSplashId = '',
       this.androidRewardId = "",
       this.androidInsertId = "",
+        this.androidRewardedInterstitialId = '',
       this.androidNativeId = "",
       this.androidBannerId = "",
       this.iosId = '',
       this.iosSplashId = "",
       this.iosRewardId = "",
       this.iosInsertId = "",
+        this.iosRewardedInterstitialId = '',
       this.iosNativeId = "",
       this.iosBannerId = ""});
 }

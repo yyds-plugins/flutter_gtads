@@ -20,13 +20,16 @@ class _FeedViewState extends State<FeedView> with AutomaticKeepAliveClientMixin 
   Widget build(BuildContext context) {
     super.build(context);
 
+    final width = MediaQuery.of(context).size.width;
+    double height = width * 3 / 4;
+
     return GTAdsNativeWidget(
       //需要的广告位组
       codes: FlutterGTAds.nativeCodes(),
-      width: MediaQuery.of(context).size.width,
-      height: 0,
+      width: width,
+      height: height,
       //超时时间 当广告失败后会依次重试其他广告 直至所有广告均加载失败 设置超时时间可提前取消
-      timeout: 1000,
+      timeout: 10,
       //广告加载模式 [GTAdsModel.PRIORITY]优先级模式 [GTAdsModel.RANDOM]随机模式
       //默认随机模式
       model: GTAdsModel.RANDOM,

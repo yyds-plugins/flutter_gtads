@@ -17,6 +17,7 @@ import 'banner_view.dart';
 import 'feed_view.dart';
 
 export 'package:gtads_csj/gtads_csj.dart';
+export 'package:flutter_gtads/ad_page.dart';
 
 class FlutterGTAds {
   static bool get isDebug {
@@ -65,6 +66,10 @@ class FlutterGTAds {
             probability: 1,
             androidId: e.androidBannerId,
             iosId: e.iosBannerId))
+        .toList()
+        .where((element) =>
+            (element.iosId!.isNotEmpty || element.androidId!.isNotEmpty) &&
+            element.alias != Alias.ylh.code)
         .toList();
   }
 
@@ -115,7 +120,6 @@ class FlutterGTAds {
   }
 
   /// 插屏
-
   static Widget splashWidget(BuildContext context, {required void Function() dismiss}) {
     if (!_configs.isNotEmpty) {
       dismiss();
@@ -155,7 +159,7 @@ class FlutterGTAds {
   }
 
   static Widget splashPage({required Widget nextPage}) {
-    if (!_configs.isNotEmpty) return Container();
+    if (!_configs.isNotEmpty) return nextPage;
     return SplashPage(nextPage: nextPage);
   }
 
@@ -179,7 +183,7 @@ class FlutterGTAds {
         codes: insertCodes(),
         isFull: false,
         //超时时间 当广告失败后会依次重试其他广告 直至所有广告均加载失败 设置超时时间可提前取消
-        timeout: 6,
+        timeout: 10,
         model: GTAdsModel.RANDOM,
         callBack: GTAdsCallBack(
           onShow: (code) {
@@ -224,7 +228,7 @@ class FlutterGTAds {
       //扩展参数
       customData: "123",
       //超时时间 当广告失败后会依次重试其他广告 直至所有广告均加载失败 设置超时时间可提前取消
-      timeout: 6,
+      timeout: 10,
       model: GTAdsModel.RANDOM,
       callBack: GTAdsCallBack(
         onShow: (code) {
