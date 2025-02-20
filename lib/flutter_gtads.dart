@@ -41,8 +41,7 @@ class FlutterGTAds {
       debugPrint("alias=${e.alias}");
 
       if (e.alias == Alias.csj || e.alias == Alias.gromore) {
-        final provider = GTAdsCsjProvider(e.alias.code, e.androidId, e.iosId, appName: 'X');
-        provider.setUseMediation(e.alias == Alias.gromore);
+        final provider = GTAdsCsjProvider(e.alias.code, e.androidId, e.iosId,useMediation: e.alias == Alias.gromore, appName: 'X');
         providers.add(provider);
       }
 
