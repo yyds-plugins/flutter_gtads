@@ -1,20 +1,16 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gtads/flutter_gtads.dart';
-import 'package:flutter_gtads/splash_page.dart';
 
 import 'feed_page.dart';
-import 'feed_view.dart';
 
-class AdPage extends StatefulWidget {
-  const AdPage({Key? key}) : super(key: key);
+class TestPage extends StatefulWidget {
+  const TestPage({Key? key}) : super(key: key);
 
   @override
-  State<AdPage> createState() => _AdPageState();
+  State<TestPage> createState() => _TestPageState();
 }
 
-class _AdPageState extends State<AdPage> {
+class _TestPageState extends State<TestPage> {
   @override
   void initState() {
 // TODO: implement initState
@@ -42,8 +38,8 @@ class _AdPageState extends State<AdPage> {
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => const SplashPage(nextPage: FeedPage())));
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (_) => FlutterGTAds.splashWidget(context, dismiss: () {})));
                   },
                   child: Text("开屏广告"),
                 ),

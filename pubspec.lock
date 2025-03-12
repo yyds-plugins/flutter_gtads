@@ -74,10 +74,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_tencentad
-      sha256: bb87f13a5e62e05a8fbf4302789a3cd3411b706d0bf4f8d02d6c27c4dd238bcd
+      sha256: "91b36a0e5e287a595fdcff5f30d57f8555a4d8e34aa9b373d8191f1dde41b387"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.2.32"
+    version: "1.2.33"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -127,10 +127,10 @@ packages:
     dependency: "direct main"
     description:
       name: gtads_ylh
-      sha256: "75ddd26f49f1915723a1d6bb658e0aa358ed6567728d35aa95fa7bc58ffbe204"
+      sha256: "37bf9543bab053e9cd0d7fa4f53ee54e07898ffa670e509ac8f57563e348981f"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.5.1"
+    version: "1.5.2"
   ksad:
     dependency: transitive
     description:

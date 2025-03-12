@@ -57,7 +57,7 @@
     },
     {
       "name": "flutter_tencentad",
-      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/flutter_tencentad-1.2.32",
+      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/flutter_tencentad-1.2.33",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -99,7 +99,7 @@
     },
     {
       "name": "gtads_ylh",
-      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/gtads_ylh-1.5.1",
+      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/gtads_ylh-1.5.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -224,7 +224,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2025-02-20T02:45:11.145952Z",
+  "generated": "2025-03-12T08:55:41.078279Z",
   "generator": "pub",
   "generatorVersion": "3.7.0",
   "flutterRoot": "file:///Users/allin/fvm/versions/stable",
