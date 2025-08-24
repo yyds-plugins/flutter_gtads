@@ -13,10 +13,10 @@ packages:
     dependency: transitive
     description:
       name: baiduad
-      sha256: "891bf9348905b1262a3e628fa44fabb1a3e644c80454830a475b138d25a4521a"
+      sha256: "3ac7c171f55e0b6ae6625e09345a674a76f92f992ba5e564638db035bc1a6781"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.0.8"
+    version: "0.0.10"
   boolean_selector:
     dependency: transitive
     description:
@@ -74,10 +74,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_tencentad
-      sha256: "91b36a0e5e287a595fdcff5f30d57f8555a4d8e34aa9b373d8191f1dde41b387"
+      sha256: "3523ced20df01232019fa601607cd4e9723441958b0916f01fb53bdff376ec22"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.2.33"
+    version: "1.2.35"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -87,10 +87,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_unionad
-      sha256: cc65664f24ed8b5e52aa0fed99792188809c10cd545e000ce516bf55e4882622
+      sha256: eb68ef24ecc66745f5041a691a079e1b4c6746cd264965d50c357a01f8ad3154
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.1.3"
+    version: "2.1.9"
   gtads:
     dependency: "direct main"
     description:
@@ -103,42 +103,42 @@ packages:
     dependency: "direct main"
     description:
       name: gtads_bqt
-      sha256: "49390a1b581bbaf52d2cd52ec72d8ef6c1e2059f38f6883aa141e95acb94b6f5"
+      sha256: "8b57c411948af9ed888b192df5dc49bece53f31b549eb26ff7b33d13c608be93"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.5.0"
+    version: "1.5.2"
   gtads_csj:
     dependency: "direct main"
     description:
       name: gtads_csj
-      sha256: "60c9826d9b496a4192e9ac15d221ea9bf3d1b12a446341fbc0064b6acf2ef646"
+      sha256: f0ec7ff51c7d60655ae95eb36f73d100ee5070bb87cc3f122e1301e5d2e14b16
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.5.1"
+    version: "1.5.7"
   gtads_ks:
     dependency: "direct main"
     description:
       name: gtads_ks
-      sha256: "4770b76d2ea7407f296bc65a975dbf649c2d7839e051a7156f5d8320c7a6811a"
+      sha256: "066d06d81960cb9e86c7d4754de2ee30b665f3c613aca84bb6a836554cb6f48a"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.5.0"
+    version: "1.5.2"
   gtads_ylh:
     dependency: "direct main"
     description:
       name: gtads_ylh
-      sha256: "37bf9543bab053e9cd0d7fa4f53ee54e07898ffa670e509ac8f57563e348981f"
+      sha256: "33e01a8d0381c14d61cbdf0a0dfe37e7219e5dc61c8cbfdb0fc8084358a03d00"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.5.2"
+    version: "1.5.4"
   ksad:
     dependency: transitive
     description:
       name: ksad
-      sha256: "7a2f4cbda3f2a3e9c6edbc9d85c74ffc26478b981a09ecf769e1b8068a7c177d"
+      sha256: "6046c09a54474c2c3ad79047aa90a088ec6ca2bab0c6dca5d602101ca9a0ae0e"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.3"
+    version: "1.0.5"
   leak_tracker:
     dependency: transitive
     description:
