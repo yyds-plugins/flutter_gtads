@@ -12,8 +12,8 @@ dependencies:
     sdk: flutter
 
   gtads: ^1.5.0 #广告基础库 必须引入  需要使用的广告按需引入,以下可选
-  gtads_csj: ^1.5.7 #字节穿山甲广告
-  gtads_ylh: ^1.5.4 # 腾讯优量汇广告
+  gtads_csj: ^1.5.11 #字节穿山甲广告
+  gtads_ylh: ^1.5.5 # 腾讯优量汇广告
   gtads_ks: ^1.5.2 # 快手广告
   gtads_bqt: ^1.5.2 #白青藤
 
@@ -21,7 +21,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
