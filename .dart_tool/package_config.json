@@ -63,7 +63,7 @@
     },
     {
       "name": "flutter_unionad",
-      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/flutter_unionad-2.2.0",
+      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/flutter_unionad-2.2.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -81,7 +81,7 @@
     },
     {
       "name": "gtads_csj",
-      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/gtads_csj-1.5.11",
+      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/gtads_csj-1.5.12",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
