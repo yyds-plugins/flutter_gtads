@@ -67,7 +67,7 @@
     },
     {
       "name": "gtads_csj",
-      "version": "1.5.12",
+      "version": "1.5.13",
       "dependencies": [
         "flutter",
         "flutter_unionad",
@@ -211,7 +211,7 @@
     },
     {
       "name": "flutter_unionad",
-      "version": "2.2.1",
+      "version": "2.2.2",
       "dependencies": [
         "flutter"
       ]

@@ -79,10 +79,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_unionad
-      sha256: e180941a357e20ba71f158cff68c5b50ca41b76f99cf4858ddb8e97b83108e69
+      sha256: "5497339690742599786a8e4e291fe2b57ac5d658496c4df81fa8103b17c5ac5b"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.2.1"
+    version: "2.2.2"
   gtads:
     dependency: "direct main"
     description:
@@ -103,10 +103,10 @@ packages:
     dependency: "direct main"
     description:
       name: gtads_csj
-      sha256: d8e865410fa4248a090631eb07e92df21d04de0a8ea8ecbec4329b78fe872e2e
+      sha256: f3134994d2976c565aab0b05f3054d79b85dee80250cb6c1379eb397a003618e
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.5.12"
+    version: "1.5.13"
   gtads_ks:
     dependency: "direct main"
     description:
