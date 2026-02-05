@@ -39,7 +39,12 @@ class _TestPageState extends State<TestPage> {
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
-                        context, MaterialPageRoute(builder: (_) => FlutterGTAds.splashWidget(context, dismiss: () {})));
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => FlutterGTAds.splashWidget(
+                                w: MediaQuery.of(context).size.width,
+                                h: MediaQuery.of(context).size.height,
+                                dismiss: () {})));
                   },
                   child: Text("开屏广告"),
                 ),

@@ -99,16 +99,16 @@ class FlutterGTAds {
         .toList();
   }
 
-  /// 插屏
-  static Widget splashWidget(BuildContext context, {required void Function() dismiss}) {
+  /// 开屏
+  static Widget splashWidget({double w = 0, double h = 0, required void Function() dismiss}) {
     if (!_configs.isNotEmpty) {
       dismiss();
       return Container();
     }
     return GTAdsSplashWidget(
       codes: FlutterGTAds.splashCodes(),
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
+      width: w,
+      height: h,
       //超时时间 当广告失败后会依次重试其他广告 直至所有广告均加载失败 设置超时时间可提前取消
       timeout: 10,
       callBack: GTAdsCallBack(
@@ -139,7 +139,7 @@ class FlutterGTAds {
   }
 
   /// 显示信息流
-  static Widget feedView() {
+  static Widget feedView({double w = 0, double h = 0}) {
     if (!_configs.isNotEmpty) return Container();
     return const FeedView();
   }
