@@ -145,9 +145,9 @@ class FlutterGTAds {
   }
 
   /// 显示横幅广告
-  static Widget bannerView() {
+  static Widget bannerView({double w = 0, double h = 0}) {
     if (!_configs.isNotEmpty) return Container();
-    return const BannerView();
+    return BannerView(w: w, h: h);
   }
 
   /// 插屏广告
