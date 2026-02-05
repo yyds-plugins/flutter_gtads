@@ -79,10 +79,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_unionad
-      sha256: "5497339690742599786a8e4e291fe2b57ac5d658496c4df81fa8103b17c5ac5b"
+      sha256: fe00ae659ebb1de770388b0301fff0af5a84276299d1bdb05f90e98da2fa02a8
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.2.2"
+    version: "2.2.5"
   gtads:
     dependency: "direct main"
     description:
@@ -103,10 +103,10 @@ packages:
     dependency: "direct main"
     description:
       name: gtads_csj
-      sha256: f3134994d2976c565aab0b05f3054d79b85dee80250cb6c1379eb397a003618e
+      sha256: "93ac95dd7d2958e76b228d4c6ff9b8aefbd0afff62995c80282258ad80f922f7"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.5.13"
+    version: "1.5.16"
   gtads_ks:
     dependency: "direct main"
     description:
@@ -175,10 +175,10 @@ packages:
     dependency: transitive
     description:
       name: meta
-      sha256: e3641ec5d63ebf0d9b41bd43201a66e3fc79a65db5f61fc181f04cd27aab950c
+      sha256: "23f08335362185a5ea2ad3a4e597f1375e78bce8a040df5c600c8d3552ef2394"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.16.0"
+    version: "1.17.0"
   path:
     dependency: transitive
     description:
@@ -244,10 +244,10 @@ packages:
     dependency: transitive
     description:
       name: test_api
-      sha256: "522f00f556e73044315fa4585ec3270f1808a4b186c936e612cab0b565ff1e00"
+      sha256: ab2726c1a94d3176a45960b6234466ec367179b87dd74f1611adb1f3b5fb9d55
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.7.6"
+    version: "0.7.7"
   vector_math:
     dependency: transitive
     description:

@@ -4,8 +4,9 @@ import 'package:gtads/gtads.dart';
 import 'flutter_gtads.dart';
 
 class BannerView extends StatefulWidget {
+  final double w;
   final double h;
-  const BannerView({super.key, this.h = 10});
+  const BannerView({super.key, this.w = 0, this.h = 0});
 
   @override
   State<BannerView> createState() => _BannerViewState();
@@ -21,14 +22,10 @@ class _BannerViewState extends State<BannerView> with AutomaticKeepAliveClientMi
   @override
   Widget build(BuildContext context) {
     super.build(context);
-
-    final width = MediaQuery.of(context).size.width;
-    double height = width * 1 / 6.4;
-
     return GTAdsBannerWidget(
         codes: FlutterGTAds.bannerCodes(),
-        width: MediaQuery.of(context).size.width,
-        height: height,
+        width: widget.w,
+        height: widget.h,
         //超时时间 当广告失败后会依次重试其他广告 直至所有广告均加载失败 设置超时时间可提前取消
         timeout: 10,
         model: GTAdsModel.RANDOM,
