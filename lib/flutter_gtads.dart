@@ -105,6 +105,15 @@ class FlutterGTAds {
       dismiss();
       return Container();
     }
+
+    /// [onShow] 广告加载成功
+    /// [onFail] 广告加载失败（单广告位）
+    /// [onClick] 广告加载点击
+    /// [onVerify] 广告验证
+    /// [onClose] 广告关闭
+    /// [onTimeout] 广告加载超时
+    /// [onEnd] 广告加载结束（所有广告均加载失败）
+    /// [onExpand] 广告扩展回调
     return GTAdsSplashWidget(
       codes: FlutterGTAds.splashCodes(),
       width: w,
@@ -119,8 +128,7 @@ class FlutterGTAds {
           debugPrint("开屏点击 ${code.toJson()}");
         },
         onFail: (code, message) {
-          debugPrint("开屏错误 ${code?.toJson()} $message");
-          dismiss();
+          debugPrint(" 广告加载失败（单广告位） ${code?.toJson()} $message");
         },
         onClose: (code) {
           debugPrint("开屏关闭 ${code.toJson()}");
