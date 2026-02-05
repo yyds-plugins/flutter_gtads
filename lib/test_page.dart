@@ -33,7 +33,7 @@ class _TestPageState extends State<TestPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                FlutterGTAds.bannerView(),
+                FlutterGTAds.bannerView(w: MediaQuery.of(context).size.width, h: 50),
                 Text("banner广告"),
                 SizedBox(height: 20),
                 ElevatedButton(

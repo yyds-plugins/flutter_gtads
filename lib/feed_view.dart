@@ -8,7 +8,7 @@ class FeedView extends StatefulWidget {
   final double h;
   final void Function()? onRenderSuccess;
 
-  const FeedView({Key? key, this.h = 0, this.w = 0, this.onRenderSuccess}) : super(key: key);
+  const FeedView({Key? key, required this.h, required this.w, this.onRenderSuccess}) : super(key: key);
 
   @override
   State<FeedView> createState() => _FeedViewState();

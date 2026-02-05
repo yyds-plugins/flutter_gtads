@@ -6,7 +6,7 @@ import 'flutter_gtads.dart';
 class BannerView extends StatefulWidget {
   final double w;
   final double h;
-  const BannerView({super.key, this.w = 0, this.h = 0});
+  const BannerView({super.key, required this.w, required this.h});
 
   @override
   State<BannerView> createState() => _BannerViewState();

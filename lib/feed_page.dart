@@ -30,7 +30,10 @@ class _FeedPageState extends State<FeedPage> {
       appBar: AppBar(
         title: const Text("FeedView"),
       ),
-      body: FeedView(),
+      body: FeedView(
+        w: MediaQuery.of(context).size.width,
+        h: 200,
+      ),
     );
   }
 }

@@ -139,13 +139,16 @@ class FlutterGTAds {
   }
 
   /// 显示信息流
-  static Widget feedView({double w = 0, double h = 0}) {
+  static Widget feedView({required double w, required double h}) {
     if (!_configs.isNotEmpty) return Container();
-    return const FeedView();
+    return FeedView(
+      w: w,
+      h: h,
+    );
   }
 
   /// 显示横幅广告
-  static Widget bannerView({double w = 0, double h = 0}) {
+  static Widget bannerView({required double w, required double h}) {
     if (!_configs.isNotEmpty) return Container();
     return BannerView(w: w, h: h);
   }
